@@ -9,6 +9,7 @@ app.use(cors())     //allow to reach different domains resource (express run on 
 app.use(express.json())
 
 
+
 //ROUTERS//
 
 //create a todo
