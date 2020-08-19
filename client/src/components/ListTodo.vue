@@ -9,12 +9,12 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="(t) in todo" v-bind:key="t.id">
+                <tr v-for="(t) in todo" v-bind:key="t.todo_id">
                     <td>
                         {{t.description}}
                     </td>
                     <td>Edit</td>
-                    <td>Delete</td>
+                    <td><button class="btn btn-danger" v-on:click="deleteTodo(t.todo_id)">Del</button></td>
                 </tr>                
             </tbody>
         </table>
@@ -38,7 +38,6 @@ export default {
 
     methods: {
         async getTodos(){
-
             try {
                 const response = await fetch('http://localhost:5000/todos', {
                     method: "GET",
@@ -52,7 +51,28 @@ export default {
             } catch (error) {
                 console.log(error.message)
             }
+        },
+
+
+        async deleteTodo(todoId){
+            try {
+                const respDelTodo = await fetch(`http://localhost:5000/todos/${todoId}`, {
+                    method: "DELETE",
+                    headers: { "Content-Type": "application/json" }
+                })
+
+                console.log(respDelTodo)
+
+                if (respDelTodo.status === 200){
+                    // console.log('200on bent')
+                    this.todo = this.todo.filter(t => t.todo_id !== todoId)
+                }
+                
+            } catch (error) {
+                console.log(error.message)
+            }
         }
+
     },
     
 }
