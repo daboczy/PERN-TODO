@@ -3,7 +3,7 @@
         <h1 class="text-center mt-5">TodoList</h1>
         <form class="d-flex mt-5">
             <input type="text" class="form-control" v-model="todo.description">
-            <button class="btn btn-success" v-on:keyup.enter="onSubmitForm()" v-on:click="onSubmitForm()" >Add</button>
+            <button class="btn btn-success ml-2" v-on:keyup.enter="onSubmitForm()" v-on:click="onSubmitForm()">Add</button>
         </form>  
     </div>
 </template>
@@ -37,7 +37,7 @@ export default {
 
                 this.todo = {}
                 // console.log(JSON.stringify(this.todo))
-                // window.location = '/'       //refresh the whole site?                
+                window.location = '/'       //refresh the whole site               
             } catch (error) {
                 console.log(error.message)
             }

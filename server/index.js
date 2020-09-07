@@ -28,7 +28,7 @@ app.post('/todos', async (req, res) => {
 //get all todos
 app.get('/todos', async (req, res) => {
     try {
-        const allTodos = await db.query('SELECT * FROM todo')
+        const allTodos = await db.query('SELECT * FROM todo order by todo_id asc')
         res.json(allTodos.rows)
     } catch (error) {
         console.log(error.message)
