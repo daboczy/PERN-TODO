@@ -14,7 +14,7 @@ npm run start
 cd client
 npm run serve
 
-# Build for production (Will build into server/public, ready for deployment)
+# Build for production
 cd client
 npm run build
 ```
