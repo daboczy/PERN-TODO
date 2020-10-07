@@ -1,6 +1,8 @@
 # TODO app
 > Full Stack Node, Vue, Express, Postgres
 
+> rewrite from react to vue
+
 ## Quick Start
 ```bash
 # Install dependencies
